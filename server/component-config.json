@@ -1,0 +1,9 @@
+{
+  "loopback-component-explorer": {
+    "mountPath": "/explorer",
+    "apiInfo": {
+      "title": "Fieldboom API",
+      "description": "Initial Basic Users API"
+    }
+  }
+}
