@@ -5,6 +5,7 @@
   },
   "rules": {
     "semi": ["error", "never"],
-    "space-before-function-paren": ["error", "always"]
+    "space-before-function-paren": ["error", "always"],
+    "max-len": 100
   }
 }

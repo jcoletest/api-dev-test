@@ -1,0 +1,27 @@
+version: '2'
+
+services:
+  apidevserver:
+    environment:
+      NODE_ENV: development
+    image: jcolemorrison/api-dev-image
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/usr/src/api
+    command: nodemon .
+
+  apidevmysql:
+    image: mysql:5.6
+    environment:
+      MYSQL_ROOT_PASSWORD: "${DB_ROOT}"
+      MYSQL_DATABASE: "${DB_NAME}"
+      MYSQL_USER: "${DB_USER}"
+      MYSQL_PASSWORD: "${DB_PWD}"
+    ports:
+      - 3306:3306
+    volumes:
+      - apidevtestdb:/var/lib/mysql
+
+volumes:
+  apidevtestdb:
