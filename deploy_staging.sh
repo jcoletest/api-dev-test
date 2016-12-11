@@ -9,6 +9,9 @@ TASK_DEFINITION="apiserver"
 IMAGE="$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$REGISTERYREPO:$CIRCLE_SHA1"
 
 function push_to_registry () {
+
+  echo "pushing to registry"
+
   # Build down new version of image
   docker build -t $IMAGE .
   docker run --rm ---entrypoint cat $IMAGE /tmp/yarn.lock > /tmp/yarn.lock
@@ -24,6 +27,8 @@ function push_to_registry () {
 }
 
 function update_api_service () {
+
+  echo "updating api service"
 
   # add image with new SHA
   cat ./task-definition.json | $JQ ".containerDefinitions[0].image=\"$IMAGE\"" > ./updated-task.json
