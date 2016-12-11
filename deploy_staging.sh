@@ -34,7 +34,7 @@ function update_api_service () {
   cat ./task-definition.json | $JQ ".containerDefinitions[0].image=\"$IMAGE\"" > ./updated-task.json
 
   # add environment variables
-  cat ./update-task.json | $JQ ".containerDefinitions[0].environment |= .+ [{\"name\": \"STAGING_RDS_HOST\", \"value\": \"$STAGING_RDS_HOST\"}]" \
+  cat ./updated-task.json | $JQ ".containerDefinitions[0].environment |= .+ [{\"name\": \"STAGING_RDS_HOST\", \"value\": \"$STAGING_RDS_HOST\"}]" \
     | $JQ ".containerDefinitions[0].environment |= .+ [{\"name\": \"STAGING_RDS_HOST\", \"value\": \"$STAGING_RDS_DB\"}]" \
     | $JQ ".containerDefinitions[0].environment |= .+ [{\"name\": \"STAGING_RDS_HOST\", \"value\": \"$STAGING_RDS_USER\"}]" \
     | $JQ ".containerDefinitions[0].environment |= .+ [{\"name\": \"STAGING_RDS_HOST\", \"value\": \"$STAGING_RDS_PWD\"}]" \
