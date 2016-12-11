@@ -29,4 +29,4 @@ deployment:
     branch: staging
     commands:
       - chmod +x deploy_staging.sh
-      - ./deploy_staging.sh -a
+      - ./deploy_staging.sh

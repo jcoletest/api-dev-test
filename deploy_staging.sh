@@ -86,37 +86,39 @@ EXAMPLES:
 EOF
 }
 
+all_but_migrate
+
 # Deal with command line flags.
-while [[ $# > 0 ]]
-do
-case "${1}" in
-  -p|--push-to-registry)
-  push_to_registry
-  shift
-  ;;
-  -i|--update-api)
-  update_api_service
-  shift
-  ;;
-  -r|--update-worker)
-  update_worker_service
-  shift
-  ;;
-  -d|--run-db-migrate)
-  run_database_migration
-  shift
-  ;;
-  -a|--all-but-migrate)
-  all_but_migrate
-  shift
-  ;;
-  -h|--help)
-  help_menu
-  shift
-  ;;
-  *)
-  echo "${1} is not a valid flag, try running: ${0} --help"
-  ;;
-esac
-shift
-done
+# while [[ $# > 0 ]]
+# do
+# case "${1}" in
+#   -p|--push-to-registry)
+#   push_to_registry
+#   shift
+#   ;;
+#   -i|--update-api)
+#   update_api_service
+#   shift
+#   ;;
+#   -r|--update-worker)
+#   update_worker_service
+#   shift
+#   ;;
+#   -d|--run-db-migrate)
+#   run_database_migration
+#   shift
+#   ;;
+#   -a|--all-but-migrate)
+#   all_but_migrate
+#   shift
+#   ;;
+#   -h|--help)
+#   help_menu
+#   shift
+#   ;;
+#   *)
+#   echo "${1} is not a valid flag, try running: ${0} --help"
+#   ;;
+# esac
+# shift
+# done
