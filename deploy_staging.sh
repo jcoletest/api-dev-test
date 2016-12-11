@@ -23,7 +23,7 @@ function push_to_registry () {
 
   eval $(aws ecr get-login --region $AWS_DEFAULT_REGION)
 
-  docker push $UPDATED_IMAGE
+  docker push $IMAGE
 }
 
 function update_api_service () {
