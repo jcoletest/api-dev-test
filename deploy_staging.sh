@@ -35,9 +35,9 @@ function update_api_service () {
 
   # add environment variables
   cat ./updated-task.json | $JQ ".containerDefinitions[0].environment |= .+ [{\"name\": \"STAGING_RDS_HOST\", \"value\": \"$STAGING_RDS_HOST\"}]" \
-    | $JQ ".containerDefinitions[0].environment |= .+ [{\"name\": \"STAGING_RDS_HOST\", \"value\": \"$STAGING_RDS_DB\"}]" \
-    | $JQ ".containerDefinitions[0].environment |= .+ [{\"name\": \"STAGING_RDS_HOST\", \"value\": \"$STAGING_RDS_USER\"}]" \
-    | $JQ ".containerDefinitions[0].environment |= .+ [{\"name\": \"STAGING_RDS_HOST\", \"value\": \"$STAGING_RDS_PWD\"}]" \
+    | $JQ ".containerDefinitions[0].environment |= .+ [{\"name\": \"STAGING_RDS_DB\", \"value\": \"$STAGING_RDS_DB\"}]" \
+    | $JQ ".containerDefinitions[0].environment |= .+ [{\"name\": \"STAGING_RDS_USER\", \"value\": \"$STAGING_RDS_USER\"}]" \
+    | $JQ ".containerDefinitions[0].environment |= .+ [{\"name\": \"STAGING_RDS_PWD\", \"value\": \"$STAGING_RDS_PWD\"}]" \
     | $JQ ".containerDefinitions[0].environment |= .+ [{\"name\": \"NODE_ENV\", \"value\": \"staging\"}]" > ./updated-task.json
 
   aws ecs register-task-definition \
