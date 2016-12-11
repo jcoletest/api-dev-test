@@ -12,4 +12,5 @@ COPY . /usr/src/api
 
 EXPOSE 3000
 
+ENTRYPOINT ["/usr/src/api/entry.sh"]
 CMD ["node", "."]
