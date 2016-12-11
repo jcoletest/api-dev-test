@@ -6,6 +6,6 @@
   "rules": {
     "semi": ["error", "never"],
     "space-before-function-paren": ["error", "always"],
-    "max-len": 100
+    "max-len": ["error", 100]
   }
 }
