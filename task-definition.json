@@ -1,0 +1,16 @@
+{
+  "family": "apiserver",
+  "containerDefinitions": [
+    {
+      "name": "apiserver",
+      "portMappings":[
+        {
+          "containerPort": 3000
+        }
+      ],
+      "cpu": 512,
+      "memoryReservation": 128,
+      "memory": 400
+    }
+  ]
+}

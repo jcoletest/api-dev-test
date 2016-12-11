@@ -23,3 +23,12 @@ dependencies:
 test:
   override:
     - yarn test
+
+deployment:
+  staging:
+    environment:
+      NODE_ENV: staging
+    branch: staging
+    commands:
+      - chmod +x deploy_staging.sh
+      - ./deploy_staging.sh -a
