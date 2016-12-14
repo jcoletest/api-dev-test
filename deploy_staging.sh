@@ -30,16 +30,21 @@ function update_api_service () {
 
   echo "updating api service"
 
-  # add image with new SHA
+  # temp json file
+  cp ./task-definition.json ./updated-task.json
+
+  # # add image with new SHA
   cat ./task-definition.json | $JQ ".containerDefinitions[0].image=\"$IMAGE\"" > ./updated-task.json
 
-  # add environment variables
+  # # add environment variables
   cat ./updated-task.json | $JQ ".containerDefinitions[0].environment |= .+ [{\"name\": \"STAGING_RDS_HOST\", \"value\": \"$STAGING_RDS_HOST\"}]" \
     | $JQ ".containerDefinitions[0].environment |= .+ [{\"name\": \"STAGING_RDS_DB\", \"value\": \"$STAGING_RDS_DB\"}]" \
     | $JQ ".containerDefinitions[0].environment |= .+ [{\"name\": \"STAGING_RDS_USER\", \"value\": \"$STAGING_RDS_USER\"}]" \
     | $JQ ".containerDefinitions[0].environment |= .+ [{\"name\": \"STAGING_RDS_PWD\", \"value\": \"$STAGING_RDS_PWD\"}]" \
-    | $JQ ".containerDefinitions[0].environment |= .+ [{\"name\": \"NODE_ENV\", \"value\": \"staging\"}]" \
-    | $JQ ".containerDefinitions[0].logConfiguration.options[\"awslogs-group\"] = \"$STAGING_API_AWSLOGS_GROUP\"" \
+    | $JQ ".containerDefinitions[0].environment |= .+ [{\"name\": \"NODE_ENV\", \"value\": \"staging\"}]" > ./updated-task.json
+
+  # add log vars
+  cat ./updated-task.json | $JQ ".containerDefinitions[0].logConfiguration.options[\"awslogs-group\"] = \"$STAGING_API_AWSLOGS_GROUP\"" \
     | $JQ ".containerDefinitions[0].logConfiguration.options[\"awslogs-region\"] = \"$STAGING_API_AWSLOGS_REGION\"" \
     | $JQ ".containerDefinitions[0].logConfiguration.options[\"awslogs-stream-prefix\"] = \"$STAGING_API_AWSLOGS_PREFIX\"" > ./updated-task.json
 
