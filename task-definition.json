@@ -8,6 +8,10 @@
           "containerPort": 3000
         }
       ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {}
+      },
       "cpu": 512,
       "memoryReservation": 128,
       "memory": 400
