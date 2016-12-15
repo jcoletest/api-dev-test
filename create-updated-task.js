@@ -4,10 +4,11 @@ const fs = require('fs')
 
 const task = require('./task-definition.json')
 const updatedTask = task
+const repo = 'ecs-apiserver'
 
 const url = `${process.env.AWS_ACCOUNT_ID}.dkr.ecr.${process.env.AWS_DEFAULT_REGION}.amazonaws.com`
 
-const image = `${url}/${process.env.REGISTERYREPO}:${process.env.CIRCLE_SHA1}`
+const image = `${url}/${repo}:${process.env.CIRCLE_SHA1}`
 
 updatedTask.containerDefinitions[0].image = image
 
