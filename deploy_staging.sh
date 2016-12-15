@@ -14,12 +14,6 @@ function push_to_registry () {
 
   # Build down new version of image
   docker build --rm=false -t $IMAGE .
-  # docker run ---entrypoint cat $IMAGE /tmp/yarn.lock > /tmp/yarn.lock
-
-  # if ! diff -q yarn.lock /tmp/yarn.lock > /dev/null  2>&1; then
-  #   echo "Moving new yarn.lock"
-  #   cp /tmp/yarn.lock yarn.lock
-  # fi
 
   eval $(aws ecr get-login --region $AWS_DEFAULT_REGION)
 
