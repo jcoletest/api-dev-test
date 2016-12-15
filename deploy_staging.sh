@@ -1,5 +1,4 @@
 set -e
-JQ="jq --raw-output --exit-status"
 CLUSTER="apidevcluster"
 BUILD="$CIRCLE_SHA1"
 REGISTERYREPO="ecs-apiserver"
