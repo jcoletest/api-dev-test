@@ -2,9 +2,9 @@ FROM node:6.9.2
 
 RUN mkdir -p /usr/src/api
 WORKDIR /usr/src/api
-COPY . /
+COPY . .
 
-RUN chmod +x /entrypoint.sh
+RUN chmod +x ./entrypoint.sh
 
-ENTRYPOINT ["/entrypoint.sh"]
-CMD ["node", "/usr/src/api"]
+ENTRYPOINT ["./entrypoint.sh"]
+CMD ["node", "."]
