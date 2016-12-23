@@ -9,4 +9,3 @@ docker-compose.yml
 create-updated-task.js
 task-definition.json
 npm-debug.log
-node_modules
