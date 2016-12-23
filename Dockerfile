@@ -7,4 +7,4 @@ COPY . /
 RUN chmod +x /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["node", "./server/server.js"]
+CMD ["node", "/usr/src/api"]
