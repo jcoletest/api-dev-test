@@ -1,7 +1,7 @@
 'use strict'
 
 module.exports = {
-  'apidevmysql': {
+  'mysqlDb': {
     'host': process.env.STAGING_RDS_HOST,
     'port': 3306,
     'database': process.env.STAGING_RDS_DB,

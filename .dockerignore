@@ -2,5 +2,11 @@
 .env.staging
 .git
 .editorconfig
+.eslintrc
+.yo-rc.json
+deploy_staging.sh
+docker-compose.yml
+create-updated-task.js
+task-definition.json
 npm-debug.log
 node_modules

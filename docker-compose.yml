@@ -4,7 +4,7 @@ services:
   apidevserver:
     environment:
       NODE_ENV: development
-    image: jcolemorrison/api-dev-image
+    image: fieldboom/apiserver-dev-image
     ports:
       - 3000:3000
     volumes:

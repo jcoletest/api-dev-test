@@ -14,22 +14,22 @@
     ]
   },
   "User": {
-    "dataSource": "apidevmysql"
+    "dataSource": "mysqlDb"
   },
   "AccessToken": {
-    "dataSource": "apidevmysql",
+    "dataSource": "mysqlDb",
     "public": false
   },
   "ACL": {
-    "dataSource": "apidevmysql",
+    "dataSource": "mysqlDb",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "apidevmysql",
+    "dataSource": "mysqlDb",
     "public": false
   },
   "Role": {
-    "dataSource": "apidevmysql",
+    "dataSource": "mysqlDb",
     "public": false
   }
 }
