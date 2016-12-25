@@ -12,9 +12,8 @@
         "logDriver": "awslogs",
         "options": {}
       },
-      "cpu": 40,
-      "memoryReservation": 256,
-      "memory": 512
+      "cpu": 512,
+      "memoryReservation": 512
     }
   ]
 }
